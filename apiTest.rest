@@ -1,0 +1,22 @@
+GET http://localhost:5000/api
+###
+# login api test
+
+POST http://localhost:5000/api/login
+Content-Type: application/json
+
+{
+  "email":"victorjosiahm3@gmail.com",
+  "password":"0704"
+}
+
+###
+POST http://localhost:5000/api/register
+Content-Type: application/json
+
+{
+  "email":"victorjosiah@gmail.com",
+  "phoneNumber": 8137297150,
+  "fullName": "Josiah",
+  "password":"0704"
+}
