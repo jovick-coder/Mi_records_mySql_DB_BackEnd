@@ -5,6 +5,7 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const userAuthRouter = require("./router/userAuthRouter");
 const socialLinks = require("./router/socialLink");
+const userTodo = require("./router/todo");
 
 const app = express();
 
@@ -22,6 +23,7 @@ app.use(cors());
 
 app.use("/api", userAuthRouter);
 app.use("/api/social-links", socialLinks);
+app.use("/api/todo", userTodo);
 
 // Handling Errors
 app.use((err, req, res, next) => {
