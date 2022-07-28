@@ -1,0 +1,50 @@
+# get all users list
+GET http://localhost:5000/api/users
+# GET https://mi-records.herokuapp.com/api/users
+###
+# login api test
+# POST http://localhost:5000/api/login
+POST https://mi-records.herokuapp.com/api/login
+Content-Type: application/json
+
+{
+  "email":"victorjosiah@gmail.com",
+  "password":"0704"
+}
+
+###
+POST http://localhost:5000/api/register
+Content-Type: application/json
+
+{
+  "email":"victorjosiah@gmail.com",
+  "phoneNumber": 8137297150,
+  "fullName": "Josiah",
+  "password":"0704"
+}
+
+# get social link
+###
+GET http://localhost:5000/api/social-links/5
+###
+POST http://localhost:5000/api/social-links/
+Content-Type: application/json
+
+{
+  "linkId": "211",
+  "name": " GitHub",
+  "icon": "<FaTwitter />",
+  "link": "https://github.com/",
+  "userId": 5
+}
+###
+PUT http://localhost:5000/api/social-links/211
+Content-Type: application/json
+
+{
+  "name": "GitHub",
+  "link": "https://twitter.com/",
+  "userId": 5
+}
+###
+DELETE http://localhost:5000/api/social-links/212
