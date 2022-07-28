@@ -24,7 +24,6 @@ userTodo.post("/", async (req, res) => {
   if (todoId === "") return res.status(401).send({ err: "todoId is required" });
   if (todoId === "") return res.status(400).send({ err: "id is required" });
   if (todo === "") return res.status(400).send({ err: "todo is required" });
-  // if (done === "") return res.status(400).send({ err: "done is required" });
   db.query(
     `  INSERT INTO userTodos (todoId, todo, done, userId)
 VALUES  ('${todoId}','${todo}',${done}, '${userId}');`,
@@ -45,13 +44,11 @@ VALUES  ('${todoId}','${todo}',${done}, '${userId}');`,
 });
 
 userTodo.put("/:id", (req, res) => {
-  const { done } = req.body;
   const { id } = req.params;
 
   if (id === "") return res.status(401).send({ err: "todoId is required" });
-  // if (userId === "") return res.status(401).send({ err: "userId is required" });
   db.query(
-    `UPDATE userTodos SET done = ${done} WHERE todoId = ${id};`,
+    `UPDATE userTodos SET done = !done WHERE todoId = ${id};`,
     (err, result) => {
       // user does not exists
       if (err) {
