@@ -4,6 +4,7 @@ const path = require("path");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const userAuthRouter = require("./router/userAuthRouter");
+const socialLinks = require("./router/socialLink");
 
 const app = express();
 
@@ -20,13 +21,14 @@ app.use(
 app.use(cors());
 
 app.use("/api", userAuthRouter);
+app.use("/api/social-links", socialLinks);
 
 // Handling Errors
 app.use((err, req, res, next) => {
   err.statusCode = err.statusCode || 500;
   err.message = err.message || "Internal Server Error";
   res.status(err.statusCode).json({
-    message: err.message,
+    message: err.message + ".",
   });
 });
 
