@@ -1,11 +1,14 @@
 const express = require("express");
 const userAuthRouter = express.Router();
-const db = require("../databaseConnection");
-const { signupValidation, loginValidation } = require("../validation");
+const db = require("../lib/databaseConnection");
+const {
+  signupValidation,
+  loginValidation,
+} = require("../middleware/validation");
 const { validationResult } = require("express-validator");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-userAuthRouter.get("/", (req, res) => {
+userAuthRouter.get("/users", (req, res) => {
   db.query(`SELECT * from users`, (err, result) => {
     res.send(result);
   });
