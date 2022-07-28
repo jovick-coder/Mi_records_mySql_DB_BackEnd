@@ -48,3 +48,25 @@ Content-Type: application/json
 }
 ###
 DELETE http://localhost:5000/api/social-links/212
+# Todo 
+###
+GET http://localhost:5000/api/todo/5
+###
+POST http://localhost:5000/api/todo/
+Content-Type: application/json
+
+{
+  "todoId": "122",
+  "todo": " GitHub",
+  "done":false,
+  "userId": "5"
+}
+###
+PUT http://localhost:5000/api/todo/122
+Content-Type: application/json
+
+{
+"done": true
+}
+###
+DELETE http://localhost:5000/api/todo/122
