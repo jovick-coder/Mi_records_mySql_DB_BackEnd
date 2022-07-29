@@ -13,6 +13,17 @@ userAuthRouter.get("/users", (req, res) => {
     res.send(result);
   });
 });
+userAuthRouter.get("/user/:id", (req, res) => {
+  const { id } = req.params;
+
+  if (id === "") {
+    id;
+    return res.status(400).send({ msg: "User Id is require" });
+  }
+  db.query(`SELECT * from users WHERE id = ${id}`, (err, result) => {
+    res.send(result);
+  });
+});
 
 userAuthRouter.post("/login", loginValidation, async (req, res, next) => {
   db.query(
