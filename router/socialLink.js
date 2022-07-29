@@ -26,8 +26,8 @@ socialLinks.post("/", async (req, res) => {
   if (name === "") return res.status(400).send({ err: "name is required" });
   if (link === "") return res.status(400).send({ err: "link is required" });
   db.query(
-    `  INSERT INTO socialLinks (linkId, name, link, userId)
-VALUES  ('${linkId}','${name}','${link}', '${userId}');`,
+    ` INSERT INTO socialLinks (linkId, name, link, userId, icon)
+VALUES  ('${linkId}','${name}','${link}', '${userId}', '${icon}');`,
     (err, result) => {
       // user does not exists
       if (err) {
