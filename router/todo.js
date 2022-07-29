@@ -48,7 +48,7 @@ userTodo.put("/:id", (req, res) => {
 
   if (id === "") return res.status(401).send({ err: "todoId is required" });
   db.query(
-    `UPDATE userTodos SET done = !done WHERE todoId = ${id};`,
+    `UPDATE userTodos SET done = !done WHERE todoId = '${id}';`,
     (err, result) => {
       // user does not exists
       if (err) {
