@@ -19,7 +19,13 @@ app.use(
   })
 );
 
-app.use(cors());
+app.use(
+  cors(
+    cors({
+      origin: "*",
+    })
+  )
+);
 
 app.use("/api", userAuthRouter);
 app.use("/api/social-links", socialLinks);
